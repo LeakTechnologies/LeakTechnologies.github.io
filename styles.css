@@ -88,35 +88,37 @@
     padding-left: 2ch !important;     /* slight indent to match left padding of text above */
   }
 
-  
 
-  .social-frame {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .x-link {
-    color: #39FF14;
-    font-family: 'Hack', 'Courier New', monospace;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  
-  .x-icon {
-    width: 16px;
-    height: 16px;
-    fill: #39FF14;
-  }
-  
-  .x-handle {
-    text-decoration: underline;
-  }
-  
-  .x-link:hover .x-handle {
-    text-decoration: none;
-  }
+
+.social-frame {
+  margin-top: 10px;
+  align-self: flex-start;
+  padding-left: 2ch;
+}
+
+.x-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-family: 'Hack', 'Courier New', monospace;
+  color: #39FF14;
+}
+
+.x-icon {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) saturate(100%) invert(80%) sepia(98%) hue-rotate(75deg) brightness(120%) contrast(130%);
+}
+
+.x-handle {
+  text-decoration: underline;
+  color: #39FF14;
+}
+
+.x-link:hover .x-handle {
+  text-decoration: none;
+}
   
   
 
