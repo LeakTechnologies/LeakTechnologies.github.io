@@ -83,9 +83,11 @@
 
   .prompt-line {
     align-self: flex-start;
-    padding-left: 6px;
-    margin-top: 16px;
+    padding-left: 0;
+    margin: 16px 0 16px 0; /* top and bottom spacing */
+    padding-left: 2ch;     /* slight indent to match left padding of text above */
   }
+  
   
   
   @keyframes blink {
