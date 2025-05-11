@@ -82,10 +82,10 @@
   }
 
   .prompt-line {
-    align-self: flex-start;
-    padding-left: 0;
-    margin: 16px 0 16px 0; /* top and bottom spacing */
-    padding-left: 2ch;     /* slight indent to match left padding of text above */
+    align-self: flex-start !important;
+    padding-left: 0 !important;
+    margin: 16px 0 16px 0 !important; /* top and bottom spacing */
+    padding-left: 2ch !important;     /* slight indent to match left padding of text above */
   }
   
   
