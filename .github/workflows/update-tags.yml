@@ -1,0 +1,37 @@
+name: Update Git Tags JSON
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # Runs daily at 3AM UTC
+  workflow_dispatch:     # Allow manual run
+
+jobs:
+  update-tags:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Pages Repo
+      uses: actions/checkout@v3
+
+    - name: Get latest tags via GitHub API
+      run: |
+        echo "Fetching tags..."
+        hull_tag=$(curl -s https://api.github.com/repos/stu-the-ironman/HULL_ioQ3a/tags | jq -r '.[0].name')
+        telefact_tag=$(curl -s https://api.github.com/repos/LeakTechnologies/Telefact/tags | jq -r '.[0].name')
+
+        echo "{
+  \"HULL_ioQ3a\": \"$hull_tag\",
+  \"Telefact\": \"$telefact_tag\"
+}" > tags.json
+
+    - name: Commit and push if changed
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        if ! git diff --quiet tags.json; then
+          git add tags.json
+          git commit -m "Auto-update tags.json"
+          git push
+        else
+          echo "No tag changes detected, skipping commit."
+        fi
