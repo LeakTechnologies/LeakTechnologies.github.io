@@ -87,6 +87,27 @@
     margin: 16px 0 16px 0 !important; /* top and bottom spacing */
     padding-left: 2ch !important;     /* slight indent to match left padding of text above */
   }
+
+  .social-frame {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .x-link {
+    color: #39FF14;
+    text-decoration: underline;
+    font-family: 'Hack', 'Courier New', monospace;
+  }
+  
+  .x-link:hover {
+    text-decoration: none;
+  }
+  
+  .x-logo {
+    font-weight: bold;
+    margin-right: 6px;
+  }
+  
   
   
   
