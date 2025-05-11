@@ -14,17 +14,25 @@
     width: 100%;
     box-sizing: border-box;
   }
-    
+  
   .logo-frame pre {
     margin: 0;
     white-space: pre;
   }
   
-  .content-frame a {
-    display: inline-block;
+  /* Project line layout */
+  .project-line {
+    display: flex;
+    justify-content: flex-start; /* or center */
+    gap: 8px;
+    margin: 8px 0;
+    white-space: nowrap;
+  }
+  
+  /* Only underline the visible link text */
+  .link-text {
     text-decoration: none;
     color: #33FF33;
-    margin: 8px 0;
   }
   
   .link-text:hover {
@@ -32,6 +40,11 @@
   }
   
   .tag-text {
-    padding-left: 4px;
+    color: #33FF33;
+    font-style: normal;
+  }
+  
+  .prompt {
+    margin-top: 16px;
   }
   
