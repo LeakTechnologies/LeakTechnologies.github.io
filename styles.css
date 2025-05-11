@@ -88,6 +88,8 @@
     padding-left: 2ch !important;     /* slight indent to match left padding of text above */
   }
 
+  
+
   .social-frame {
     margin-top: 20px;
     text-align: center;
@@ -95,21 +97,29 @@
   
   .x-link {
     color: #39FF14;
-    text-decoration: underline;
     font-family: 'Hack', 'Courier New', monospace;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
   
-  .x-link:hover {
+  .x-icon {
+    width: 16px;
+    height: 16px;
+    fill: #39FF14;
+  }
+  
+  .x-handle {
+    text-decoration: underline;
+  }
+  
+  .x-link:hover .x-handle {
     text-decoration: none;
   }
   
-  .x-logo {
-    font-weight: bold;
-    margin-right: 6px;
-  }
   
-  
-  
+
   
   @keyframes blink {
     0%, 100% { opacity: 1; }
