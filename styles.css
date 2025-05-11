@@ -1,0 +1,11 @@
+.content-frame a {
+    display: block;
+    color: #33FF33;
+    text-decoration: none;
+    margin: 8px 0;
+  }
+  
+  .content-frame a:hover {
+    text-decoration: underline;
+  }
+  
