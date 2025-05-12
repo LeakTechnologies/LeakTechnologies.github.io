@@ -1,11 +1,15 @@
-/* Reset and global styles */
+/* === GLOBAL CRT STYLING === */
+* {
+  box-sizing: border-box;
+  background-color: black;
+  color: #33FF33;
+  font-family: 'Hack', 'Courier New', Courier, monospace;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: black;
-  color: #33FF33;
-  font-family: 'Hack', 'Courier New', Courier, monospace;
   font-size: 16px;
   text-shadow: 0 0 5px #33FF33;
   display: flex;
@@ -14,9 +18,9 @@ html, body {
   justify-content: flex-start;
   max-width: 100vw;
   overflow-x: hidden;
-  box-sizing: border-box;
 }
 
+/* === STRUCTURE === */
 .main-frame {
   display: flex;
   flex-direction: column;
@@ -24,9 +28,9 @@ html, body {
   width: 100%;
   max-width: 720px;
   padding: 16px;
-  box-sizing: border-box;
 }
 
+/* === BOXES === */
 .logo-frame,
 .content-frame {
   border: 2px solid #33FF33;
@@ -37,6 +41,7 @@ html, body {
   overflow-x: auto;
 }
 
+/* === ASCII LOGO === */
 .logo-frame pre {
   margin: 0;
   white-space: pre;
@@ -44,33 +49,32 @@ html, body {
   text-align: center;
 }
 
+/* === CONTENT AREA === */
 .content-frame {
-  text-align: left;
   white-space: pre-wrap;
   font-size: 16px;
 }
 
-.project-line {
+/* === LINKS AND PROMPT (LEFT-ALIGNED) === */
+.project-line,
+.prompt-line {
+  align-self: flex-start;
+  padding-left: 2ch;
+  text-align: left;
   margin-bottom: 10px;
 }
 
-a {
+.link-text {
   text-decoration: underline;
   color: #33FF33;
 }
 
-a:hover {
+.link-text:hover {
   text-decoration: none;
 }
 
 .tag-text {
   padding-left: 4px;
-}
-
-.prompt-line {
-  margin-top: 24px;
-  margin-bottom: 24px;
-  text-align: left;
 }
 
 .blink {
@@ -82,15 +86,14 @@ a:hover {
   50% { opacity: 0; }
 }
 
-/* X logo and handle section */
+/* === SOCIAL LINK === */
 .x-link {
   display: flex;
   align-items: center;
   margin-top: 16px;
-  margin-left: 0;
+  padding-left: 2ch;
   width: 100%;
   max-width: 720px;
-  padding-left: 18px;
   box-sizing: border-box;
 }
 
@@ -100,27 +103,27 @@ a:hover {
   margin-right: 8px;
 }
 
-.x-link a {
-  color: #33FF33;
+.x-handle {
   text-decoration: underline;
+  color: #33FF33;
 }
 
-.x-link a:hover {
+.x-link:hover .x-handle {
   text-decoration: none;
 }
 
-/* Responsive scaling for mobile */
+/* === MOBILE ADJUSTMENTS === */
 @media (max-width: 600px) {
-  body {
-    font-size: 16px;
+  html, body {
+    font-size: 15px;
   }
 
   .logo-frame pre {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .content-frame {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .x-link img {
