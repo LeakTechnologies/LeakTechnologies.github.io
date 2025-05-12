@@ -1,173 +1,140 @@
 /* === GLOBAL CRT STYLING === */
 * {
-    background-color: black !important;
-    color: #39FF14 !important;
-    font-family: 'Hack', 'Courier New', monospace !important;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-size: 16px;
-    text-shadow: 0 0 5px #39FF14;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow-x: hidden;
-  }
-  
-  /* === MAIN CONTAINER === */
+  background-color: black !important;
+  color: #39FF14 !important;
+  font-family: 'Hack', 'Courier New', monospace !important;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 16px;
+  text-shadow: 0 0 5px #39FF14;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;  /* no horizontal scroll */
+}
+
+/* === MAIN CONTAINER === */
+.main-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 84ch;        /* fixed on desktop */
+}
+
+/* === FRAMED BOXES === */
+.logo-frame,
+.content-frame {
+  border: 2px solid #39FF14;
+  padding: 12px 18px;
+  margin: 10px 0;
+  width: 100%;
+  background-color: black;
+  overflow: hidden;   /* hide any overflow */
+}
+
+/* === ASCII LOGO === */
+.logo-frame pre {
+  margin: 0;
+  white-space: pre;
+  text-align: center;
+  font-size: 16px;
+  transform-origin: top left;
+}
+
+/* === CONTENT === */
+.content-frame {
+  white-space: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === PROJECT LINKS === */
+.project-line {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  margin: 8px 0;
+  white-space: nowrap;
+}
+.link-text { text-decoration: underline; }
+.link-text:hover { text-decoration: none; }
+.tag-text { font-style: normal; }
+
+/* === TERMINAL PROMPT === */
+.prompt-line {
+  align-self: flex-start;
+  padding-left: 2ch;
+  margin: 16px 0;
+}
+.blink-underscore {
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
+}
+
+/* === SOCIAL LINK === */
+.social-frame {
+  margin-top: 10px;
+  align-self: flex-start;
+  padding-left: 2ch;
+}
+.x-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+.x-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.x-handle {
+  text-decoration: underline;
+}
+.x-link:hover .x-handle {
+  text-decoration: none;
+}
+
+/* === MOBILE ADJUSTMENTS === */
+@media screen and (max-width: 768px) {
+  /* container now fluid */
   .main-frame {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 84ch;
-  }
-  
-  /* === FRAMED BOXES === */
-  .logo-frame,
-  .content-frame {
-    border: 2px solid #39FF14;
-    padding: 12px 18px;
-    margin: 10px 0;
     width: 100%;
-    background-color: black;
+    padding: 0 8px;
   }
-  
-  /* === ASCII LOGO === */
-  .logo-frame {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+
+  /* shrink ASCII into the box via CSS scale */
   .logo-frame pre {
-    margin: 0;
-    white-space: pre;
-    text-align: center;
-    font-size: 16px;
+    /* tweak this scale factor until the logo fits perfectly in your viewport */
+    transform: scale(0.35);
   }
-  
-  /* === CONTENT === */
-  .content-frame {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    white-space: normal;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* === PROJECT LINKS === */
-  .project-line {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    gap: 8px;
-    margin: 8px 0;
-    white-space: nowrap;
-  }
-  
-  .link-text {
-    text-decoration: underline;
-  }
-  
-  .link-text:hover {
-    text-decoration: none;
-  }
-  
-  .tag-text {
-    font-style: normal;
-  }
-  
-  /* === TERMINAL PROMPT === */
-  .prompt-line {
-    align-self: flex-start;
-    padding-left: 2ch;
-    margin: 16px 0;
-  }
-  
-  .blink-underscore {
-    animation: blink 1s steps(2, start) infinite;
-  }
-  
-  @keyframes blink {
-    0%,100% { opacity: 1; }
-    50%     { opacity: 0; }
-  }
-  
-  /* === SOCIAL LINK === */
-  .social-frame {
-    margin-top: 10px;
-    align-self: flex-start;
-    padding-left: 2ch;
-  }
-  
+
+  /* menu and prompt remain large and wrap normally */
+  .project-line,
+  .prompt-line,
   .x-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    text-decoration: none;
+    font-size: 17px;
   }
-  
+
   .x-icon {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
+    width: 20px;
+    height: 20px;
   }
-  
-  .x-handle {
-    text-decoration: underline;
+
+  .social-frame {
+    padding-left: 8px;
+    margin-top: 12px;
   }
-  
-  .x-link:hover .x-handle {
-    text-decoration: none;
-  }
-  
-  /* === MOBILE ADJUSTMENTS === */
-  @media screen and (max-width: 768px) {
-    /* Base UI text */
-    html, body {
-      font-size: 18px;
-    }
-  
-    .main-frame {
-      width: 80%;
-      padding: 0 8px;
-    }
-  
-    /* ASCII box: hide any overflow, then scale the <pre> */
-    .logo-frame {
-      overflow: hidden;
-    }
-    .logo-frame pre {
-      font-size: 10px;               /* smaller base */
-      transform: scale(0.45);        /* shrink to ~38ch visible width */
-      transform-origin: top left;    /* keep aligned to left/top */
-      white-space: pre;              /* preserve your spacing exactly */
-      margin: 0;                     /* no extra offsets */
-    }
-  
-    /* Menu box: no scrollbars, wrap as needed */
-    .content-frame {
-      overflow: visible;
-      white-space: normal;
-    }
-    .project-line,
-    .prompt-line,
-    .x-link {
-      font-size: 15px;               /* touch-friendly tap targets */
-    }
-  
-    /* Social link */
-    .x-icon {
-      width: 18px;
-      height: 18px;
-    }
-    .social-frame {
-      padding-left: 8px;
-      margin-top: 12px;
-    }
-  }
-  
+}
