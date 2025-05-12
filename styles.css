@@ -10,6 +10,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: black;
 }
 
 /* === STRUCTURE === */
@@ -56,17 +57,26 @@ html, body {
   align-items: flex-start;
 }
 
-/* === LINKS + PROMPT === */
-.project-line,
+/* === PROJECT LINKS === */
+.project-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0.5ch;
+  margin: 0 0 1rem 0;    /* one blank line after each link */
+}
+
+/* === BLINKING PROMPT === */
 .prompt-line {
   display: flex;
   align-items: baseline;
-  gap: 0.5ch;
-  margin-bottom: 8px;
-  width: 100%;
   justify-content: flex-start;
+  width: 100%;
+  margin: 0 0 1rem 0;    /* one blank line before next section */
 }
 
+/* === LINK STYLING === */
 .link-text {
   text-decoration: underline;
   color: #33FF33;
@@ -80,6 +90,7 @@ html, body {
   padding-left: 4px;
 }
 
+/* === CURSOR BLINK === */
 .blink {
   animation: blink 1s steps(2, start) infinite;
 }
@@ -107,10 +118,10 @@ html, body {
 }
 
 /* === MOBILE ADJUSTMENTS === */
-@media (max-width:600px) {
-  .logo-frame pre { font-size: 11px; }
-  .content-frame   { font-size: 15px; }
+@media (max-width: 600px) {
+  .logo-frame pre  { font-size: 11px; }
+  .content-frame  { font-size: 15px; }
   .project-line,
-  .prompt-line     { font-size: 15px; }
-  .x-link img      { width: 20px; }
+  .prompt-line    { font-size: 15px; }
+  .x-link img     { width: 20px; }
 }
