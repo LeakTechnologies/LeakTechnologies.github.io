@@ -16,27 +16,27 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  max-width: 100vw;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
-/* === STRUCTURE === */
+/* === MAIN STRUCTURE === */
 .main-frame {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   max-width: 720px;
   padding: 16px;
 }
 
-/* === BOXES === */
+/* === FRAMES === */
 .logo-frame,
 .content-frame {
   border: 2px solid #33FF33;
+  padding: 12px 18px;
   margin: 12px 0;
   width: 100%;
-  box-sizing: border-box;
   overflow-x: auto;
 }
 
@@ -45,37 +45,35 @@ html, body {
   margin: 0;
   white-space: pre;
   font-size: 14px;
+  line-height: 1.2;
   text-align: center;
 }
 
-/* === CONTENT AREA === */
+/* === CONTENT TEXT === */
 .content-frame {
+  white-space: normal;
   font-size: 16px;
-}
-
-.content-inner {
-  padding-left: 2ch;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* === LINKS AND PROMPT (LEFT-ALIGNED) === */
+/* === LINKS + PROMPT === */
 .project-line,
 .prompt-line {
   display: flex;
   align-items: baseline;
   gap: 0.5ch;
-  margin: 0 0 8px 0;
+  margin-bottom: 8px;
   text-align: left;
 }
 
-.link-text {
+.link-text a {
   text-decoration: underline;
   color: #33FF33;
 }
 
-.link-text:hover {
+.link-text a:hover {
   text-decoration: none;
 }
 
@@ -97,10 +95,7 @@ html, body {
   display: flex;
   align-items: center;
   margin-top: 16px;
-  padding-left: 2ch;
   width: 100%;
-  max-width: 720px;
-  box-sizing: border-box;
 }
 
 .x-link img {
@@ -118,12 +113,8 @@ html, body {
   text-decoration: none;
 }
 
-/* === MOBILE ADJUSTMENTS === */
+/* === MOBILE RESPONSIVENESS === */
 @media (max-width: 600px) {
-  html, body {
-    font-size: 15px;
-  }
-
   .logo-frame pre {
     font-size: 11px;
   }
@@ -132,12 +123,12 @@ html, body {
     font-size: 15px;
   }
 
-  .x-link img {
-    width: 20px;
-  }
-
   .project-line,
   .prompt-line {
     font-size: 15px;
+  }
+
+  .x-link img {
+    width: 20px;
   }
 }
