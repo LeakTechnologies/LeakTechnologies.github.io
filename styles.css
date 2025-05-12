@@ -126,7 +126,7 @@
   /* === MOBILE STYLING === */
   @media screen and (max-width: 768px) {
     html, body {
-      font-size: 17px;
+      font-size: 18px;
     }
   
     .main-frame {
@@ -135,19 +135,19 @@
     }
   
     .logo-frame {
-      font-size: 14px;
+      font-size: 12px;
       overflow-x: auto;
       white-space: nowrap;
     }
   
     .logo-frame pre {
-      font-size: 14px;
+      font-size: 12px;
       white-space: pre;
       overflow-x: auto;
     }
   
     .content-frame {
-      font-size: 17px;
+      font-size: 18px;
       overflow-x: auto;
       white-space: normal;
     }
@@ -155,7 +155,7 @@
     .project-line,
     .prompt-line,
     .x-link {
-      font-size: 17px;
+      font-size: 16px;
     }
   
     .x-icon {
