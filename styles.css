@@ -49,6 +49,8 @@ html, body {
 /* === INTERNAL PADDING CONTAINER === */
 .content-inner {
   padding-left: 2ch;
+  padding-right: 2ch;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -61,6 +63,8 @@ html, body {
   align-items: baseline;
   gap: 0.5ch;
   margin-bottom: 8px;
+  width: 100%;
+  justify-content: flex-start;
 }
 
 .link-text {
