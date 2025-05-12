@@ -58,11 +58,14 @@ html, body {
 /* === LINKS AND PROMPT (LEFT-ALIGNED) === */
 .project-line,
 .prompt-line {
-  align-self: flex-start;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
   padding-left: 2ch;
+  margin: 8px 0;
   text-align: left;
-  margin-bottom: 10px;
 }
+
 
 .link-text {
   text-decoration: underline;
@@ -114,9 +117,12 @@ html, body {
 
 /* === MOBILE ADJUSTMENTS === */
 @media (max-width: 600px) {
-  html, body {
+  .project-line,
+  .prompt-line {
     font-size: 15px;
   }
+}
+
 
   .logo-frame pre {
     font-size: 11px;
