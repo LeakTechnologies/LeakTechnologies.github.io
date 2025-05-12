@@ -134,7 +134,8 @@
   
     .main-frame {
       width: 100%;
-      padding: 0 12px;
+      max-width: 84ch;
+      padding: 0 16px;
     }
   
     .logo-frame,
@@ -144,6 +145,8 @@
   
     .logo-frame pre {
       font-size: 16px;
+      white-space: pre;
+      overflow-x: auto;
     }
   
     .project-line,
@@ -152,7 +155,7 @@
     }
   
     .social-frame {
-      padding-left: 12px;
+      padding-left: 16px;
     }
   
     .x-icon {
@@ -160,4 +163,5 @@
       height: 20px;
     }
   }
+    }
   
