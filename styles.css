@@ -28,7 +28,7 @@
   /* === FRAMED BOXES === */
   .logo-frame,
   .content-frame {
-    border: 1px solid #39FF14;
+    border: 2px solid #39FF14;
     padding: 12px 18px;
     margin: 10px 0;
     width: 100%;
@@ -128,7 +128,7 @@
   /* === MOBILE RESPONSIVENESS === */
   @media screen and (max-width: 768px) {
     html, body {
-      font-size: 16px;
+      font-size: 18px;
       padding: 0;
     }
   
@@ -143,12 +143,12 @@
     }
   
     .logo-frame pre {
-      font-size: 12px;
+      font-size: 16px;
     }
   
     .project-line,
     .prompt-line {
-      font-size: 15px;
+      font-size: 16px;
     }
   
     .social-frame {
