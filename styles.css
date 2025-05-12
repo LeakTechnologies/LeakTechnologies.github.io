@@ -104,28 +104,56 @@ html, body {
 
 /* === MOBILE OVERRIDES === */
 @media screen and (max-width: 768px) {
+  /* keep page itself from scrolling horizontally */
   html, body {
-    font-size: 17px;             /* UI text */
+    overflow-x: hidden;
+    font-size: 17px;
   }
 
+  /* make the terminal container full-viewport and scrollable */
   .main-frame {
-    width: 100%;
-    padding: 0 12px;
+    width: 100vw;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0;        /* remove side padding so width == viewport width */
+    margin: 0;         /* align flush */
   }
 
-  /* Fit ASCII art exactly to viewport */
-  .ascii-wrap {
-    font-size: calc((100vw - 36px) / 84);
-    line-height: 1;
+  /* let each box grow naturally to the ASCII width */
+  .logo-frame,
+  .content-frame {
+    width: max-content;
+    margin: 10px auto; /* vertical spacing, centered horizontally in scroll */
   }
 
-  /* Menu and prompt stay tappable */
+  /* shrink ASCII art slightly to fit more comfortably */
+  .logo-frame pre {
+    font-size: 1.1vw;  /* approx 84ch × 1.1vw ≈ 92vw */
+    white-space: pre;
+  }
+
+  /* keep menu text legible */
+  .content-frame,
   .project-line,
   .prompt-line,
   .x-link {
     font-size: 17px;
   }
 
-  .x-icon { width: 20px; height: 20px; }
-  .social-frame { padding-left: 12px; margin-top: 14px; }
+  /* slightly larger social-icon */
+  .x-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* preserve CRT border width */
+  .logo-frame,
+  .content-frame {
+    border-width: 2px;
+  }
+
+  .social-frame {
+    padding-left: 12px;
+    margin-top: 14px;
+  }
 }
