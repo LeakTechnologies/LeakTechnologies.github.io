@@ -129,11 +129,11 @@
   @media screen and (max-width: 768px) {
     /* Base UI text */
     html, body {
-      font-size: 17px;
+      font-size: 18px;
     }
   
     .main-frame {
-      width: 100%;
+      width: 80%;
       padding: 0 8px;
     }
   
@@ -142,7 +142,7 @@
       overflow: hidden;
     }
     .logo-frame pre {
-      font-size: 8px;               /* smaller base */
+      font-size: 10px;               /* smaller base */
       transform: scale(0.45);        /* shrink to ~38ch visible width */
       transform-origin: top left;    /* keep aligned to left/top */
       white-space: pre;              /* preserve your spacing exactly */
