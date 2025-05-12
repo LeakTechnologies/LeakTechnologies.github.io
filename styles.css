@@ -16,7 +16,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;  /* no horizontal scroll */
+  overflow-x: hidden; /* no horizontal scroll */
 }
 
 /* === MAIN CONTAINER === */
@@ -24,7 +24,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 84ch;        /* fixed on desktop */
+  width: 84ch; /* fixed desktop width */
 }
 
 /* === FRAMED BOXES === */
@@ -35,7 +35,7 @@ html, body {
   margin: 10px 0;
   width: 100%;
   background-color: black;
-  overflow: hidden;   /* hide any overflow */
+  overflow: hidden;
 }
 
 /* === ASCII LOGO === */
@@ -43,11 +43,12 @@ html, body {
   margin: 0;
   white-space: pre;
   text-align: center;
-  font-size: 16px;
+  /* fluid scaling: between 12px and 16px based on viewport width */
+  font-size: clamp(12px, 2.5vw, 16px);
   transform-origin: top left;
 }
 
-/* === CONTENT === */
+/* === CONTENT LAYOUT === */
 .content-frame {
   white-space: normal;
   display: flex;
@@ -64,22 +65,35 @@ html, body {
   margin: 8px 0;
   white-space: nowrap;
 }
-.link-text { text-decoration: underline; }
-.link-text:hover { text-decoration: none; }
-.tag-text { font-style: normal; }
+
+.link-text {
+  text-decoration: underline;
+}
+
+.link-text:hover {
+  text-decoration: none;
+}
+
+.tag-text {
+  font-style: normal;
+}
 
 /* === TERMINAL PROMPT === */
 .prompt-line {
   align-self: flex-start;
   padding-left: 2ch;
   margin: 16px 0;
+  /* fluid scaling: between 14px and 18px */
+  font-size: clamp(14px, 3.5vw, 18px);
 }
+
 .blink-underscore {
   animation: blink 1s steps(2, start) infinite;
 }
+
 @keyframes blink {
-  0%,100% { opacity: 1; }
-  50%     { opacity: 0; }
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
 }
 
 /* === SOCIAL LINK === */
@@ -88,53 +102,27 @@ html, body {
   align-self: flex-start;
   padding-left: 2ch;
 }
+
 .x-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   text-decoration: none;
+  /* fluid scaling for handle text */
+  font-size: clamp(14px, 3.5vw, 18px);
 }
+
 .x-icon {
   width: 16px;
   height: 16px;
   display: inline-block;
   vertical-align: middle;
 }
+
 .x-handle {
   text-decoration: underline;
 }
+
 .x-link:hover .x-handle {
   text-decoration: none;
-}
-
-/* === MOBILE ADJUSTMENTS === */
-@media screen and (max-width: 768px) {
-  /* container now fluid */
-  .main-frame {
-    width: 100%;
-    padding: 0 8px;
-  }
-
-  /* shrink ASCII into the box via CSS scale */
-  .logo-frame pre {
-    /* tweak this scale factor until the logo fits perfectly in your viewport */
-    transform: scale(0.35);
-  }
-
-  /* menu and prompt remain large and wrap normally */
-  .project-line,
-  .prompt-line,
-  .x-link {
-    font-size: 17px;
-  }
-
-  .x-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .social-frame {
-    padding-left: 8px;
-    margin-top: 12px;
-  }
 }
