@@ -24,7 +24,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 84ch;                    /* exact terminal width on desktop */
+  width: 84ch;                    /* fixed width on desktop */
 }
 
 /* === FRAMED BOXES === */
@@ -37,17 +37,17 @@ html, body {
   background-color: black;
 }
 
-/* === ASCII LOGO === */
+/* === ASCII LOGO & WRAP === */
 .logo-frame {
-  overflow-x: auto;               /* horizontal scroll for ASCII */
+  overflow-x: auto;               /* allow box scroll if needed */
   -webkit-overflow-scrolling: touch;
 }
-.logo-frame pre {
+.ascii-wrap pre {
   margin: 0;
-  white-space: pre;               /* preserve spacing */
+  white-space: pre;               /* preserve ascii art */
   text-align: center;
+  /* desktop: 16px max; mobile size computed below */
   font-size: clamp(12px, 2.5vw, 16px);
-  /* clamp: never smaller than 12px, scales with viewport, max 16px */
 }
 
 /* === CONTENT LAYOUT === */
@@ -68,17 +68,9 @@ html, body {
   white-space: nowrap;
 }
 
-.link-text {
-  text-decoration: underline;
-}
-
-.link-text:hover {
-  text-decoration: none;
-}
-
-.tag-text {
-  font-style: normal;
-}
+.link-text { text-decoration: underline; }
+.link-text:hover { text-decoration: none; }
+.tag-text  { font-style: normal; }
 
 /* === TERMINAL PROMPT === */
 .prompt-line {
@@ -86,13 +78,8 @@ html, body {
   padding-left: 2ch;
   margin: 16px 0;
   font-size: clamp(14px, 3.5vw, 18px);
-  /* clamp: never below 14px, scales, max 18px */
 }
-
-.blink-underscore {
-  animation: blink 1s steps(2, start) infinite;
-}
-
+.blink-underscore { animation: blink 1s steps(2, start) infinite; }
 @keyframes blink {
   0%,100% { opacity: 1; }
   50%     { opacity: 0; }
@@ -104,7 +91,6 @@ html, body {
   align-self: flex-start;
   padding-left: 2ch;
 }
-
 .x-link {
   display: inline-flex;
   align-items: center;
@@ -112,22 +98,34 @@ html, body {
   text-decoration: none;
   font-size: clamp(14px, 3.5vw, 18px);
 }
+.x-icon   { width: 16px; height: 16px; display: inline-block; }
+.x-handle { text-decoration: underline; }
+.x-link:hover .x-handle { text-decoration: none; }
 
-.x-icon {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  vertical-align: middle;
+/* === MOBILE OVERRIDES === */
+@media screen and (max-width: 768px) {
+  html, body {
+    font-size: 17px;             /* UI text */
+  }
+
+  .main-frame {
+    width: 100%;
+    padding: 0 12px;
+  }
+
+  /* Fit ASCII art exactly to viewport */
+  .ascii-wrap {
+    font-size: calc((100vw - 36px) / 84);
+    line-height: 1;
+  }
+
+  /* Menu and prompt stay tappable */
+  .project-line,
+  .prompt-line,
+  .x-link {
+    font-size: 17px;
+  }
+
+  .x-icon { width: 20px; height: 20px; }
+  .social-frame { padding-left: 12px; margin-top: 14px; }
 }
-
-.x-handle {
-  text-decoration: underline;
-}
-
-.x-link:hover .x-handle {
-  text-decoration: none;
-}
-
-/* === MOBILE OVERRIDES (if you need extra tweaks) === */
-/* You can leave this empty now because clamp() handles most scaling */
-/* Or add spacing/padding tweaks here if desired */
