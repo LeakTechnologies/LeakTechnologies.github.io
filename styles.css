@@ -10,6 +10,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
   font-size: 16px;
   text-shadow: 0 0 5px #33FF33;
   display: flex;
@@ -17,10 +18,10 @@ html, body {
   align-items: center;
   justify-content: flex-start;
   overflow-x: hidden;
-  overflow-y: auto;
+  background-color: black !important;
 }
 
-/* === MAIN STRUCTURE === */
+/* === STRUCTURE === */
 .main-frame {
   display: flex;
   flex-direction: column;
@@ -28,9 +29,10 @@ html, body {
   width: 100%;
   max-width: 720px;
   padding: 16px;
+  box-sizing: border-box;
 }
 
-/* === FRAMES === */
+/* === BOXES === */
 .logo-frame,
 .content-frame {
   border: 2px solid #33FF33;
@@ -45,35 +47,33 @@ html, body {
   margin: 0;
   white-space: pre;
   font-size: 14px;
-  line-height: 1.2;
   text-align: center;
+  background-color: black;
 }
 
-/* === CONTENT TEXT === */
+/* === CONTENT AREA === */
 .content-frame {
-  white-space: normal;
   font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  white-space: pre-wrap;
 }
 
-/* === LINKS + PROMPT === */
+/* === LINKS AND PROMPT (LEFT-ALIGNED) === */
 .project-line,
 .prompt-line {
   display: flex;
   align-items: baseline;
   gap: 0.5ch;
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
   text-align: left;
+  padding-left: 0;
 }
 
-.link-text a {
+.link-text {
   text-decoration: underline;
   color: #33FF33;
 }
 
-.link-text a:hover {
+.link-text:hover {
   text-decoration: none;
 }
 
@@ -95,13 +95,14 @@ html, body {
   display: flex;
   align-items: center;
   margin-top: 16px;
-  width: 100%;
+  padding-left: 0;
 }
 
 .x-link img {
   width: 24px;
   height: auto;
   margin-right: 8px;
+  filter: brightness(0) saturate(100%) invert(58%) sepia(92%) saturate(462%) hue-rotate(88deg) brightness(103%) contrast(110%);
 }
 
 .x-handle {
