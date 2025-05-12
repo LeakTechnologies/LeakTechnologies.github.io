@@ -1,166 +1,113 @@
-/* === GLOBAL CRT STYLING === */
+/* Base Reset */
 * {
-  background-color: black !important;
-  color: #39FF14 !important;
-  font-family: 'Hack', 'Courier New', monospace !important;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
   height: 100%;
-  font-size: 16px;                /* desktop base */
-  text-shadow: 0 0 5px #39FF14;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow-x: hidden;             /* prevent page-level scroll */
+  background-color: black;
+  color: #00FF00;
+  font-family: 'Hack', 'Courier New', monospace;
+  font-size: 17px;
+  text-shadow: 0 0 5px #00FF00;
+  overflow-x: hidden;
 }
 
-/* === MAIN CONTAINER === */
 .main-frame {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 84ch;                    /* fixed width on desktop */
+  padding: 20px;
 }
 
-/* === FRAMED BOXES === */
 .logo-frame,
 .content-frame {
-  border: 2px solid #39FF14;
-  padding: 12px 18px;
+  border: 2px solid #00FF00;
   margin: 10px 0;
+  padding: 12px 18px;
   width: 100%;
-  background-color: black;
+  max-width: 720px;
+  word-wrap: break-word;
+  overflow-x: auto;
 }
 
-/* === ASCII LOGO & WRAP === */
-.logo-frame {
-  overflow-x: auto;               /* allow box scroll if needed */
-  -webkit-overflow-scrolling: touch;
-}
-.ascii-wrap pre {
-  margin: 0;
-  white-space: pre;               /* preserve ascii art */
+.logo-frame pre {
+  font-size: 12px;
+  white-space: pre-wrap;
   text-align: center;
-  /* desktop: 16px max; mobile size computed below */
-  font-size: clamp(12px, 2.5vw, 16px);
 }
 
-/* === CONTENT LAYOUT === */
-.content-frame {
-  white-space: normal;            /* wrap links normally */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Link and Terminal Styles */
+a {
+  color: #00FF00;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* === PROJECT LINKS === */
-.project-line {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 8px;
-  margin: 8px 0;
-  white-space: nowrap;
-}
-
-.link-text { text-decoration: underline; }
-.link-text:hover { text-decoration: none; }
-.tag-text  { font-style: normal; }
-
-/* === TERMINAL PROMPT === */
-.prompt-line {
-  align-self: flex-start;
-  padding-left: 2ch;
-  margin: 16px 0;
-  font-size: clamp(14px, 3.5vw, 18px);
-}
-.blink-underscore { animation: blink 1s steps(2, start) infinite; }
-@keyframes blink {
-  0%,100% { opacity: 1; }
-  50%     { opacity: 0; }
-}
-
-/* === SOCIAL LINK === */
-.social-frame {
-  margin-top: 10px;
-  align-self: flex-start;
-  padding-left: 2ch;
-}
-.x-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+a:hover {
   text-decoration: none;
-  font-size: clamp(14px, 3.5vw, 18px);
 }
-.x-icon   { width: 16px; height: 16px; display: inline-block; }
-.x-handle { text-decoration: underline; }
-.x-link:hover .x-handle { text-decoration: none; }
 
-/* === MOBILE OVERRIDES === */
-@media screen and (max-width: 768px) {
+.project-line {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.prompt-line {
+  text-align: left;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Social Section */
+.social-link {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 720px;
+  padding: 0 18px;
+}
+
+.social-link img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  filter: brightness(0) saturate(100%) invert(58%) sepia(92%) saturate(462%) hue-rotate(88deg) brightness(103%) contrast(110%);
+}
+
+.social-link a {
+  color: #00FF00;
+  text-decoration: underline;
+}
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
   html, body {
-    overflow-x: hidden;
     font-size: 16px;
   }
 
-  .main-frame {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertical centering */
-    align-items: center;     /* Horizontal centering */
-    padding: 20px 0;         /* Vertical space inside */
-    width: 80vw;
-    overflow-x: auto;
-  }
-
-  .logo-frame, .content-frame {
-    width: auto;
-    max-width: 100%;         /* Prevent overflowing */
-    margin: 15px 0;
-    padding: 12px 20px;
-    text-align: center;
-    border-width: 2px;
-  }
-
   .logo-frame pre {
-    font-size: 1.5rem;       /* Adjust the font for mobile */
-    white-space: pre-wrap;
+    font-size: 10px;
   }
 
+  .logo-frame,
   .content-frame {
-    white-space: pre-wrap;
-    font-size: 1.1rem;       /* Readable size for content */
+    padding: 10px 12px;
   }
 
-  /* Ensures that the links maintain their style and size */
-  .link-text {
-    text-decoration: none;
-    color: #33FF33;
+  .social-link {
+    font-size: 14px;
   }
-
-  .link-text:hover {
-    text-decoration: none;  /* Links no longer have underline when hovered */
-  }
-
-  /* Align the X logo and link properly */
-  .x-link {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .x-link img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-  }
-}
 }

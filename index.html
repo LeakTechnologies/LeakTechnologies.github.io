@@ -1,81 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leak Technologies</title>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Hack&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hack&display=swap">
-  </noscript>
-  <link rel="stylesheet" href="styles.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Hack&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<div class="main-frame">
-  <div class="logo-frame">
-    <div class="ascii-wrap">
+  <div class="main-frame">
+
+    <div class="logo-frame">
       <pre>
-........................................................................
-..=###======......:-###-:.............-###:.......-###***======+==+###..
-..*###**#==+...-###########:......:*##########=...+###***=====***####+..
-..*###**#==+.-*##############-...*##############=.+###***===##**####*-..
-..*###**#==+=###%*********####=:####*********####++###***===#*######-...
-..*###**#==*####****===****####%####***====***########***===#####*=.....
-..*###**#==*####***=====*#######*********===***#######***+==%%*-:.......
-..*###**#*=*####***+===========:..:*####*===***#######***===#####+......
-..-####***##*####**************:.*#######===***#######***===#######+....
-...=######*#.+#####************:####*****===***#######***===#***####*:..
-.....+######..-*####################**#=====***#######***====+#**####=..
-.......:-+**.....-=**################*++++++############**++++*######+..
-........................................................................
-................................        Technologies          ..........
-........................................................................
+  .==========......:-===-:.............-====:......-============+==+===.
+  .*###**#==+...-###########:......:*##########=...+###***=====***####+.
+  .*###**#==+.-*##############-...*##############=.+###***===##**####*-.
+  .*###**#==+=###%*********####=:####*********####++###***===#*######-..
+  .*###**#==*####****===****####%####***===*#**########***===#####*=....
+  .*###**#==*####***=====*#######*********===***#######***+==%%*-:......
+  .*###**#*=*####**#+===========:..:*####*===***#######***===#####+.....
+  .-####***##*####***#*********#:.*#######===***#######***===#######+...
+  ..=######*#.+#####************:####*****===***#######***===#***####*:.
+  ....+######..-*####################**#=====***#######***====+#**####=.
+  ......:-+**.....-=**################*++++++############**++++*######+.
+  ..............................-==-......::..........-.......::........
+  ...............................          Technologies            .......
+  ........................................................................
       </pre>
     </div>
-  </div>
 
-  <div class="content-frame">
-    <div class="project-line">
-      <a href="https://github.com/stu-the-ironman/HULL_ioQ3a" target="_blank">
-        <span class="link-text">HULL (Based on Quake 3 Engine)</span>
-      </a>
-      <span id="hull-tag" class="tag-text">[v1.0.0]</span>
+    <div class="content-frame">
+      <div class="project-line">
+        <a href="https://github.com/stu-the-ironman/HULL_ioQ3a" target="_blank">
+          HULL (Based on Quake 3 Engine)
+        </a>
+        <span class="tag-text">[v1.0.0]</span>
+      </div>
+
+      <div class="project-line">
+        <a href="https://github.com/LeakTechnologies/Telefact" target="_blank">
+          Telefact – Ceefax-style RSS Reader
+        </a>
+        <span class="tag-text">[v0.9.0]</span>
+      </div>
+
+      <div class="prompt-line">&gt;<span class="blink">_</span></div>
     </div>
 
-    <div class="project-line">
-      <a href="https://github.com/LeakTechnologies/Telefact" target="_blank">
-        <span class="link-text">Telefact – Ceefax-style RSS Reader</span>
-      </a>
-      <span id="telefact-tag" class="tag-text">[v0.9.0]</span>
+    <div class="social-link">
+      <img src="assets/logos/x-logo-green.png" alt="X Logo" />
+      <a href="https://x.com/stutheironman" target="_blank">@stutheironman</a>
     </div>
 
-    <div class="prompt-line">
-      <span>&gt;<span class="blink-underscore">_</span></span>
-    </div>
   </div>
-
-  <div class="social-frame">
-    <a href="https://x.com/stutheironman" target="_blank" class="x-link">
-      <img src="assets/logos/x-logo-green.png" alt="X logo" class="x-icon">
-      <span class="x-handle">@stutheironman</span>
-    </a>
-  </div>
-</div>
-
-<script>
-  fetch('tags.json')
-    .then(r => r.json())
-    .then(tags => {
-      document.getElementById("hull-tag").textContent = `[${tags.HULL_ioQ3a||"unknown"}]`;
-      document.getElementById("telefact-tag").textContent = `[${tags.Telefact||"unknown"}]`;
-    })
-    .catch(() => {
-      document.getElementById("hull-tag").textContent = "[error]";
-      document.getElementById("telefact-tag").textContent = "[error]";
-    });
-</script>
 
 </body>
 </html>
