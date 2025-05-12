@@ -10,13 +10,13 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-size: 16px;
+  font-size: 16px;                /* desktop base */
   text-shadow: 0 0 5px #39FF14;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden; /* no horizontal scroll */
+  overflow-x: hidden;             /* prevent page-level scroll */
 }
 
 /* === MAIN CONTAINER === */
@@ -24,7 +24,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 84ch; /* fixed desktop width */
+  width: 84ch;                    /* exact terminal width on desktop */
 }
 
 /* === FRAMED BOXES === */
@@ -35,22 +35,24 @@ html, body {
   margin: 10px 0;
   width: 100%;
   background-color: black;
-  overflow: hidden;
 }
 
 /* === ASCII LOGO === */
+.logo-frame {
+  overflow-x: auto;               /* horizontal scroll for ASCII */
+  -webkit-overflow-scrolling: touch;
+}
 .logo-frame pre {
   margin: 0;
-  white-space: pre;
+  white-space: pre;               /* preserve spacing */
   text-align: center;
-  /* fluid scaling: between 12px and 16px based on viewport width */
   font-size: clamp(12px, 2.5vw, 16px);
-  transform-origin: top left;
+  /* clamp: never smaller than 12px, scales with viewport, max 16px */
 }
 
 /* === CONTENT LAYOUT === */
 .content-frame {
-  white-space: normal;
+  white-space: normal;            /* wrap links normally */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,8 +85,8 @@ html, body {
   align-self: flex-start;
   padding-left: 2ch;
   margin: 16px 0;
-  /* fluid scaling: between 14px and 18px */
   font-size: clamp(14px, 3.5vw, 18px);
+  /* clamp: never below 14px, scales, max 18px */
 }
 
 .blink-underscore {
@@ -92,8 +94,8 @@ html, body {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0; }
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
 }
 
 /* === SOCIAL LINK === */
@@ -108,7 +110,6 @@ html, body {
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  /* fluid scaling for handle text */
   font-size: clamp(14px, 3.5vw, 18px);
 }
 
@@ -126,3 +127,7 @@ html, body {
 .x-link:hover .x-handle {
   text-decoration: none;
 }
+
+/* === MOBILE OVERRIDES (if you need extra tweaks) === */
+/* You can leave this empty now because clamp() handles most scaling */
+/* Or add spacing/padding tweaks here if desired */
