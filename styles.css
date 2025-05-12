@@ -126,7 +126,7 @@
   /* === MOBILE ADJUSTMENTS === */
   @media screen and (max-width: 768px) {
     html, body {
-      font-size: 18px;
+      font-size: 22px;
     }
   
     .main-frame {
