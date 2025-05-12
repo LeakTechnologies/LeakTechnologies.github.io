@@ -108,11 +108,7 @@
   .x-icon {
     width: 16px;
     height: 16px;
-    max-width: 16px;
-    max-height: 16px;
     display: inline-block;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(80%) sepia(98%) hue-rotate(75deg) brightness(120%) contrast(130%);
   }
   
   .x-handle {
@@ -123,7 +119,7 @@
   .x-link:hover .x-handle {
     text-decoration: none;
   }
-    
+      
 
   
   @keyframes blink {
