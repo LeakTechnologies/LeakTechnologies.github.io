@@ -1,4 +1,4 @@
-/* === RESET + UNIVERSAL TERMINAL STYLING === */
+/* === GLOBAL CRT STYLING === */
 * {
     background-color: black !important;
     color: #39FF14 !important;
@@ -13,11 +13,12 @@
     font-size: 16px;
     text-shadow: 0 0 5px #39FF14;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
   
-  /* === MAIN CONTAINER === */
+  /* === CONTAINER === */
   .main-frame {
     display: flex;
     flex-direction: column;
@@ -40,10 +41,9 @@
     margin: 0;
     white-space: pre;
     text-align: center;
-    overflow-x: auto;
   }
   
-  /* === MENU STRUCTURE === */
+  /* === CONTENT LAYOUT === */
   .content-frame {
     display: flex;
     flex-direction: column;
@@ -51,7 +51,7 @@
     text-align: center;
   }
   
-  /* === PROJECT LINE === */
+  /* === PROJECT LINKS === */
   .project-line {
     display: flex;
     justify-content: center;
@@ -61,7 +61,6 @@
     white-space: nowrap;
   }
   
-  /* === LINK BEHAVIOR === */
   .link-text {
     color: #39FF14;
     text-decoration: underline;
@@ -71,13 +70,18 @@
     text-decoration: none;
   }
   
-  /* === VERSION TEXT === */
   .tag-text {
     color: #39FF14;
     font-style: normal;
   }
   
-  /* === CURSOR BLINK === */
+  /* === PROMPT CURSOR === */
+  .prompt-line {
+    align-self: flex-start;
+    padding-left: 2ch;
+    margin: 16px 0;
+  }
+  
   .blink-underscore {
     animation: blink 1s steps(2, start) infinite;
   }
@@ -85,13 +89,6 @@
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50%      { opacity: 0; }
-  }
-  
-  /* === PROMPT LINE === */
-  .prompt-line {
-    align-self: flex-start !important;
-    margin: 16px 0 !important;
-    padding-left: 2ch !important;
   }
   
   /* === SOCIAL LINK === */
@@ -114,6 +111,7 @@
     width: 16px;
     height: 16px;
     display: inline-block;
+    vertical-align: middle;
   }
   
   .x-handle {
@@ -125,43 +123,44 @@
     text-decoration: none;
   }
   
-  /* === MOBILE RESPONSIVENESS === */
+  /* === MOBILE ADJUSTMENTS === */
   @media screen and (max-width: 768px) {
     html, body {
       font-size: 18px;
-      padding: 0;
     }
   
     .main-frame {
       width: 100%;
-      max-width: 84ch;
-      padding: 0 16px;
+      padding: 0 12px;
     }
   
     .logo-frame,
     .content-frame {
       overflow-x: auto;
+      white-space: pre;
+      font-size: 14px;
+      border-width: 2px;
     }
   
     .logo-frame pre {
-      font-size: 16px;
+      font-size: 14px;
       white-space: pre;
-      overflow-x: auto;
     }
   
     .project-line,
-    .prompt-line {
+    .prompt-line,
+    .x-link {
       font-size: 16px;
-    }
-  
-    .social-frame {
-      padding-left: 16px;
     }
   
     .x-icon {
       width: 20px;
       height: 20px;
     }
-  }
+  
+    .social-frame {
+      padding-left: 12px;
+      margin-top: 14px;
     }
+  }
   
