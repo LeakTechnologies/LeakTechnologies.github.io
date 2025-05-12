@@ -104,56 +104,63 @@ html, body {
 
 /* === MOBILE OVERRIDES === */
 @media screen and (max-width: 768px) {
-  /* keep page itself from scrolling horizontally */
   html, body {
     overflow-x: hidden;
     font-size: 17px;
   }
 
-  /* make the terminal container full-viewport and scrollable */
   .main-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical centering */
+    align-items: center;     /* Horizontal centering */
+    padding: 20px 0;         /* Vertical space inside */
     width: 100vw;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 0;        /* remove side padding so width == viewport width */
-    margin: 0;         /* align flush */
   }
 
-  /* let each box grow naturally to the ASCII width */
-  .logo-frame,
-  .content-frame {
-    width: max-content;
-    margin: 10px auto; /* vertical spacing, centered horizontally in scroll */
-  }
-
-  /* shrink ASCII art slightly to fit more comfortably */
-  .logo-frame pre {
-    font-size: 1.1vw;  /* approx 84ch × 1.1vw ≈ 92vw */
-    white-space: pre;
-  }
-
-  /* keep menu text legible */
-  .content-frame,
-  .project-line,
-  .prompt-line,
-  .x-link {
-    font-size: 17px;
-  }
-
-  /* slightly larger social-icon */
-  .x-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  /* preserve CRT border width */
-  .logo-frame,
-  .content-frame {
+  .logo-frame, .content-frame {
+    width: auto;
+    max-width: 100%;         /* Prevent overflowing */
+    margin: 15px 0;
+    padding: 12px 20px;
+    text-align: center;
     border-width: 2px;
   }
 
-  .social-frame {
-    padding-left: 12px;
-    margin-top: 14px;
+  .logo-frame pre {
+    font-size: 1.5rem;       /* Adjust the font for mobile */
+    white-space: pre-wrap;
   }
+
+  .content-frame {
+    white-space: pre-wrap;
+    font-size: 1.1rem;       /* Readable size for content */
+  }
+
+  /* Ensures that the links maintain their style and size */
+  .link-text {
+    text-decoration: none;
+    color: #33FF33;
+  }
+
+  .link-text:hover {
+    text-decoration: none;  /* Links no longer have underline when hovered */
+  }
+
+  /* Align the X logo and link properly */
+  .x-link {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .x-link img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+}
 }
