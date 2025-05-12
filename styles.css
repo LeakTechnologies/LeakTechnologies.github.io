@@ -142,7 +142,7 @@
       overflow: hidden;
     }
     .logo-frame pre {
-      font-size: 12px;               /* smaller base */
+      font-size: 8px;               /* smaller base */
       transform: scale(0.45);        /* shrink to ~38ch visible width */
       transform-origin: top left;    /* keep aligned to left/top */
       white-space: pre;              /* preserve your spacing exactly */
