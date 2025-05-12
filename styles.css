@@ -134,17 +134,22 @@
       padding: 0 12px;
     }
   
-    .logo-frame,
-    .content-frame {
+    .logo-frame {
+      font-size: 14px;
       overflow-x: auto;
-      white-space: pre;
-      font-size: 17px;
-      border-width: 2px;
+      white-space: nowrap;
     }
   
     .logo-frame pre {
       font-size: 14px;
       white-space: pre;
+      overflow-x: auto;
+    }
+  
+    .content-frame {
+      font-size: 17px;
+      overflow-x: auto;
+      white-space: normal;
     }
   
     .project-line,
@@ -163,4 +168,5 @@
       margin-top: 14px;
     }
   }
+    
   
