@@ -40,6 +40,7 @@
     margin: 0;
     white-space: pre;
     text-align: center;
+    overflow-x: auto;
   }
   
   /* === MENU STRUCTURE === */
@@ -80,16 +81,20 @@
   .blink-underscore {
     animation: blink 1s steps(2, start) infinite;
   }
-
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+  }
+  
+  /* === PROMPT LINE === */
   .prompt-line {
     align-self: flex-start !important;
-    padding-left: 0 !important;
-    margin: 16px 0 16px 0 !important; /* top and bottom spacing */
-    padding-left: 2ch !important;     /* slight indent to match left padding of text above */
+    margin: 16px 0 !important;
+    padding-left: 2ch !important;
   }
-
-
-
+  
+  /* === SOCIAL LINK === */
   .social-frame {
     margin-top: 10px;
     align-self: flex-start;
@@ -119,11 +124,40 @@
   .x-link:hover .x-handle {
     text-decoration: none;
   }
-      
-
   
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%      { opacity: 0; }
+  /* === MOBILE RESPONSIVENESS === */
+  @media screen and (max-width: 768px) {
+    html, body {
+      font-size: 16px;
+      padding: 0;
+    }
+  
+    .main-frame {
+      width: 100%;
+      padding: 0 12px;
+    }
+  
+    .logo-frame,
+    .content-frame {
+      overflow-x: auto;
+    }
+  
+    .logo-frame pre {
+      font-size: 12px;
+    }
+  
+    .project-line,
+    .prompt-line {
+      font-size: 15px;
+    }
+  
+    .social-frame {
+      padding-left: 12px;
+    }
+  
+    .x-icon {
+      width: 20px;
+      height: 20px;
+    }
   }
   
