@@ -112,15 +112,15 @@ a:hover {
 /* Responsive scaling for mobile */
 @media (max-width: 600px) {
   body {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .logo-frame pre {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .content-frame {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .x-link img {
