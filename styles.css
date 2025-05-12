@@ -16,6 +16,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-x: hidden;
   }
   
   /* === MAIN CONTAINER === */
@@ -26,7 +27,7 @@
     width: 84ch;
   }
   
-  /* === BOXES === */
+  /* === FRAMED BOXES === */
   .logo-frame,
   .content-frame {
     border: 2px solid #39FF14;
@@ -37,6 +38,10 @@
   }
   
   /* === ASCII LOGO === */
+  .logo-frame {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
   .logo-frame pre {
     margin: 0;
     white-space: pre;
@@ -46,12 +51,15 @@
   
   /* === CONTENT === */
   .content-frame {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: normal;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
   
+  /* === PROJECT LINKS === */
   .project-line {
     display: flex;
     justify-content: center;
@@ -62,7 +70,6 @@
   }
   
   .link-text {
-    color: #39FF14;
     text-decoration: underline;
   }
   
@@ -71,7 +78,6 @@
   }
   
   .tag-text {
-    color: #39FF14;
     font-style: normal;
   }
   
@@ -87,8 +93,8 @@
   }
   
   @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%      { opacity: 0; }
+    0%,100% { opacity: 1; }
+    50%     { opacity: 0; }
   }
   
   /* === SOCIAL LINK === */
@@ -103,70 +109,65 @@
     align-items: center;
     gap: 6px;
     text-decoration: none;
-    font-family: 'Hack', 'Courier New', monospace;
-    color: #39FF14;
   }
   
   .x-icon {
     width: 16px;
     height: 16px;
     display: inline-block;
-    vertical-align: middle;
   }
   
   .x-handle {
     text-decoration: underline;
-    color: #39FF14;
   }
   
   .x-link:hover .x-handle {
     text-decoration: none;
   }
   
-  /* === MOBILE STYLING === */
+  /* === MOBILE ADJUSTMENTS === */
   @media screen and (max-width: 768px) {
+    /* Base UI text */
     html, body {
-      font-size: 18px;
+      font-size: 17px;
     }
   
     .main-frame {
       width: 100%;
-      padding: 0 12px;
+      padding: 0 8px;
     }
   
+    /* ASCII box: hide any overflow, then scale the <pre> */
     .logo-frame {
-      font-size: 10px;
-      overflow-x: auto;
-      white-space: nowrap;
+      overflow: hidden;
     }
-  
     .logo-frame pre {
-      font-size: 12px;
-      white-space: pre;
-      overflow-x: auto;
+      font-size: 12px;               /* smaller base */
+      transform: scale(0.45);        /* shrink to ~38ch visible width */
+      transform-origin: top left;    /* keep aligned to left/top */
+      white-space: pre;              /* preserve your spacing exactly */
+      margin: 0;                     /* no extra offsets */
     }
   
+    /* Menu box: no scrollbars, wrap as needed */
     .content-frame {
-      font-size: 18px;
-      overflow-x: auto;
+      overflow: visible;
       white-space: normal;
     }
-  
     .project-line,
     .prompt-line,
     .x-link {
-      font-size: 16px;
+      font-size: 15px;               /* touch-friendly tap targets */
     }
   
+    /* Social link */
     .x-icon {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
-  
     .social-frame {
-      padding-left: 12px;
-      margin-top: 14px;
+      padding-left: 8px;
+      margin-top: 12px;
     }
   }
-    
   
